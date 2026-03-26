@@ -7,6 +7,8 @@ export default function TerrainSurfaceEffects() {
 
   return (
     <>
+      <div className="absolute inset-0 z-[1] pointer-events-none terrain-substrate" />
+
       {breakpoint === "desktop" ? (
         <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden mix-blend-screen opacity-20">
           <div className="stipple-high absolute inset-0" />
@@ -15,6 +17,10 @@ export default function TerrainSurfaceEffects() {
 
       <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden mix-blend-multiply opacity-20">
         <div className="wash-aging absolute inset-0" />
+      </div>
+
+      <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden opacity-40">
+        <div className="denied-crosshatch absolute inset-0 [mask-image:radial-gradient(circle_at_76%_48%,black_0,black_11%,transparent_19%)]" />
       </div>
 
       <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden mix-blend-overlay opacity-10">

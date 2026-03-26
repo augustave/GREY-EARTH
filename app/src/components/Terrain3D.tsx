@@ -153,10 +153,30 @@ export default function Terrain3D() {
         canvas.height = 512;
         const ctx = canvas.getContext("2d");
         if (ctx) {
-          ctx.drawImage(cartoImg, 0, 0, 512, 512);
-          // Apply a dark tint to match design
-          ctx.fillStyle = "rgba(0,0,0,0.4)";
+          ctx.fillStyle = "#1a1e1c";
           ctx.fillRect(0, 0, 512, 512);
+
+          ctx.save();
+          ctx.filter = "grayscale(1) contrast(1.25) brightness(0.42)";
+          ctx.globalAlpha = 0.18;
+          ctx.drawImage(cartoImg, 0, 0, 512, 512);
+          ctx.restore();
+
+          const reliefGradient = ctx.createLinearGradient(0, 0, 512, 512);
+          reliefGradient.addColorStop(0, "rgba(107,117,109,0.12)");
+          reliefGradient.addColorStop(0.55, "rgba(46,52,48,0.08)");
+          reliefGradient.addColorStop(1, "rgba(10,12,11,0.18)");
+          ctx.fillStyle = reliefGradient;
+          ctx.fillRect(0, 0, 512, 512);
+
+          ctx.strokeStyle = "rgba(255,255,255,0.025)";
+          ctx.lineWidth = 1;
+          for (let i = -512; i < 1024; i += 4) {
+            ctx.beginPath();
+            ctx.moveTo(i, 0);
+            ctx.lineTo(i - 512, 512);
+            ctx.stroke();
+          }
           
           const texture = new THREE.CanvasTexture(canvas);
           materialRef.current.map = texture;

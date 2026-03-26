@@ -19,10 +19,15 @@ export function useMapLayerBindings() {
     map.setPaintProperty(
       "hillshade",
       "raster-opacity",
-      activeLayerIds.has("hillshade") ? 0.45 : 0,
+      activeLayerIds.has("hillshade") ? 0.58 : 0,
     );
     map.setLayoutProperty(
       "denied",
+      "visibility",
+      activeLayerIds.has("denied") ? "visible" : "none",
+    );
+    map.setLayoutProperty(
+      "denied-outline",
       "visibility",
       activeLayerIds.has("denied") ? "visible" : "none",
     );

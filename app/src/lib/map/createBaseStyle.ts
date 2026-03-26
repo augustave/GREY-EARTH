@@ -66,13 +66,23 @@ export function createBaseStyle(): StyleSpecification {
     },
     layers: [
       {
+        id: "terrain-substrate",
+        type: "background",
+        paint: {
+          "background-color": "#1a1e1c",
+          "background-opacity": 1,
+        },
+      },
+      {
         id: "carto-dark-base",
         type: "raster",
         source: "carto-dark",
         paint: {
-          "raster-brightness-max": 0.35,
+          "raster-opacity": 0.16,
+          "raster-brightness-min": 0.02,
+          "raster-brightness-max": 0.18,
           "raster-saturation": -1,
-          "raster-contrast": 0.15,
+          "raster-contrast": 0.45,
         },
       },
       {
@@ -80,9 +90,11 @@ export function createBaseStyle(): StyleSpecification {
         type: "raster",
         source: "terrain-hillshade-src",
         paint: {
-          "raster-opacity": 0.45,
-          "raster-brightness-max": 0.55,
-          "raster-contrast": 0.25,
+          "raster-opacity": 0.58,
+          "raster-brightness-min": 0.12,
+          "raster-brightness-max": 0.82,
+          "raster-contrast": 0.38,
+          "raster-saturation": -1,
         },
       },
       {
@@ -101,8 +113,19 @@ export function createBaseStyle(): StyleSpecification {
         source: "denied-zones",
         layout: { visibility: "none" },
         paint: {
-          "fill-color": "rgba(255, 45, 45, 0.12)",
-          "fill-outline-color": "rgba(255, 45, 45, 0.25)",
+          "fill-color": "rgba(255, 45, 45, 0.15)",
+          "fill-outline-color": "rgba(255, 45, 45, 0.3)",
+        },
+      },
+      {
+        id: "denied-outline",
+        type: "line",
+        source: "denied-zones",
+        layout: { visibility: "none" },
+        paint: {
+          "line-color": "rgba(255, 45, 45, 0.45)",
+          "line-width": 1,
+          "line-dasharray": [3, 2],
         },
       },
     ],
