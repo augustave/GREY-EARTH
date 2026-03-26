@@ -9,6 +9,10 @@ export default function TerrainSurfaceEffects() {
     <>
       <div className="absolute inset-0 z-[1] pointer-events-none terrain-substrate" />
 
+      <div className="absolute inset-0 z-[2] pointer-events-none overflow-hidden mix-blend-soft-light opacity-[0.14]">
+        <div className="terrain-relief absolute inset-0" />
+      </div>
+
       {breakpoint === "desktop" ? (
         <div className="absolute inset-0 z-10 pointer-events-none overflow-hidden mix-blend-screen opacity-20">
           <div className="stipple-high absolute inset-0" />

@@ -8,16 +8,6 @@ export function createBaseStyle(): StyleSpecification {
     version: 8,
     name: "SIGINT-TERRAIN Dark",
     sources: {
-      "carto-dark": {
-        type: "raster",
-        tiles: [
-          "https://a.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}@2x.png",
-          "https://b.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}@2x.png",
-          "https://c.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}@2x.png",
-        ],
-        tileSize: 256,
-        maxzoom: 20,
-      },
       "terrain-rgb": {
         type: "raster-dem",
         tiles: [
@@ -69,20 +59,8 @@ export function createBaseStyle(): StyleSpecification {
         id: "terrain-substrate",
         type: "background",
         paint: {
-          "background-color": "#1a1e1c",
+          "background-color": "#0a0c0b",
           "background-opacity": 1,
-        },
-      },
-      {
-        id: "carto-dark-base",
-        type: "raster",
-        source: "carto-dark",
-        paint: {
-          "raster-opacity": 0.16,
-          "raster-brightness-min": 0.02,
-          "raster-brightness-max": 0.18,
-          "raster-saturation": -1,
-          "raster-contrast": 0.45,
         },
       },
       {
@@ -90,10 +68,10 @@ export function createBaseStyle(): StyleSpecification {
         type: "raster",
         source: "terrain-hillshade-src",
         paint: {
-          "raster-opacity": 0.58,
+          "raster-opacity": 0.62,
           "raster-brightness-min": 0.12,
           "raster-brightness-max": 0.82,
-          "raster-contrast": 0.38,
+          "raster-contrast": 0.42,
           "raster-saturation": -1,
         },
       },

@@ -141,50 +141,43 @@ export default function Terrain3D() {
       geometryRef.current.attributes.position.needsUpdate = true;
       geometryRef.current.computeVertexNormals();
 
-      // Load texture composite (Carto Dark + Hillshade)
-      try {
-        const cartoUrl = `https://a.basemaps.cartocdn.com/dark_nolabels/${z}/${x}/${y}@2x.png`;
-        const cartoImg = new Image();
-        cartoImg.crossOrigin = "anonymous";
-        await new Promise((res, rej) => { cartoImg.onload = res; cartoImg.onerror = rej; cartoImg.src = cartoUrl; });
-        
-        const canvas = document.createElement("canvas");
-        canvas.width = 512;
-        canvas.height = 512;
-        const ctx = canvas.getContext("2d");
-        if (ctx) {
-          ctx.fillStyle = "#1a1e1c";
-          ctx.fillRect(0, 0, 512, 512);
+      const canvas = document.createElement("canvas");
+      canvas.width = 512;
+      canvas.height = 512;
+      const ctx = canvas.getContext("2d");
+      if (ctx) {
+        ctx.fillStyle = "#1a1e1c";
+        ctx.fillRect(0, 0, 512, 512);
 
-          ctx.save();
-          ctx.filter = "grayscale(1) contrast(1.25) brightness(0.42)";
-          ctx.globalAlpha = 0.18;
-          ctx.drawImage(cartoImg, 0, 0, 512, 512);
-          ctx.restore();
+        const reliefGradient = ctx.createLinearGradient(0, 0, 512, 512);
+        reliefGradient.addColorStop(0, "rgba(107,117,109,0.18)");
+        reliefGradient.addColorStop(0.55, "rgba(46,52,48,0.1)");
+        reliefGradient.addColorStop(1, "rgba(10,12,11,0.22)");
+        ctx.fillStyle = reliefGradient;
+        ctx.fillRect(0, 0, 512, 512);
 
-          const reliefGradient = ctx.createLinearGradient(0, 0, 512, 512);
-          reliefGradient.addColorStop(0, "rgba(107,117,109,0.12)");
-          reliefGradient.addColorStop(0.55, "rgba(46,52,48,0.08)");
-          reliefGradient.addColorStop(1, "rgba(10,12,11,0.18)");
-          ctx.fillStyle = reliefGradient;
-          ctx.fillRect(0, 0, 512, 512);
-
-          ctx.strokeStyle = "rgba(255,255,255,0.025)";
-          ctx.lineWidth = 1;
-          for (let i = -512; i < 1024; i += 4) {
-            ctx.beginPath();
-            ctx.moveTo(i, 0);
-            ctx.lineTo(i - 512, 512);
-            ctx.stroke();
-          }
-          
-          const texture = new THREE.CanvasTexture(canvas);
-          materialRef.current.map = texture;
-          materialRef.current.color = new THREE.Color(0xffffff); // reset base color so texture shows
-          materialRef.current.needsUpdate = true;
+        ctx.strokeStyle = "rgba(255,255,255,0.03)";
+        ctx.lineWidth = 1;
+        for (let i = -512; i < 1024; i += 4) {
+          ctx.beginPath();
+          ctx.moveTo(i, 0);
+          ctx.lineTo(i - 512, 512);
+          ctx.stroke();
         }
-      } catch (e) {
-        console.error("Failed to load map texture for 3D", e);
+
+        ctx.strokeStyle = "rgba(255,255,255,0.06)";
+        ctx.lineWidth = 0.5;
+        for (let i = -512; i < 1024; i += 10) {
+          ctx.beginPath();
+          ctx.moveTo(i, 0);
+          ctx.lineTo(i - 512, 512);
+          ctx.stroke();
+        }
+
+        const texture = new THREE.CanvasTexture(canvas);
+        materialRef.current.map = texture;
+        materialRef.current.color = new THREE.Color(0xffffff);
+        materialRef.current.needsUpdate = true;
       }
     };
 

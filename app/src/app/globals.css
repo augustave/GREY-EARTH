@@ -186,6 +186,25 @@ body {
     linear-gradient(180deg, var(--color-terrain-deep) 0%, var(--color-terrain-mid) 100%);
 }
 
+.terrain-relief {
+  background-image:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.12) 2px,
+      rgba(255, 255, 255, 0.12) 2.45px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 5px,
+      rgba(255, 255, 255, 0.08) 5px,
+      rgba(255, 255, 255, 0.08) 5.45px
+    );
+  background-size: 100% 100%;
+}
+
 .vignette,
 .vignette-tactical {
   background:
@@ -242,15 +261,6 @@ body {
 }
 
 /* ─── 5. Viewport Effects ─── */
-
-.vignette-tactical {
-  background: radial-gradient(
-    circle at center,
-    transparent 20%,
-    rgba(0, 0, 0, 0.3) 70%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
-}
 
 @keyframes heartbeat {
   0% { opacity: 0.8; transform: scale(1); }
