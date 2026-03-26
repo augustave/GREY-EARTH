@@ -1,6 +1,7 @@
 "use client";
 
 import CoordinatesPanel from "@/components/hud/CoordinatesPanel";
+import EarthEnginePanel from "@/components/earth-engine/EarthEnginePanel";
 import IntelFeedPanel from "@/components/hud/IntelFeedPanel";
 import ProfilePanel from "@/components/hud/ProfilePanel";
 import SystemHeader from "@/components/hud/SystemHeader";
@@ -21,6 +22,7 @@ export default function DesktopHUD() {
       <div className="absolute top-6 right-6 z-30 flex flex-col gap-4 items-end">
         <TimeStatusPanel />
         <TerrainControlsPanel />
+        <EarthEnginePanel />
       </div>
 
       <div className="absolute top-1/2 -translate-y-1/2 right-6 z-30 w-72">

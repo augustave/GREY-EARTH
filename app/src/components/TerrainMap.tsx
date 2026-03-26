@@ -4,6 +4,7 @@ import { useRef } from "react";
 import "maplibre-gl/dist/maplibre-gl.css";
 import MapCornerReadout from "@/components/map/MapCornerReadout";
 import TerrainSurfaceEffects from "@/components/map/TerrainSurfaceEffects";
+import { useEarthEngineImageryLayer } from "@/components/map/useEarthEngineImageryLayer";
 import { useMapAnalysisBindings } from "@/components/map/useMapAnalysisBindings";
 import { useMapInteractions } from "@/components/map/useMapInteractions";
 import { useMapLayerBindings } from "@/components/map/useMapLayerBindings";
@@ -13,6 +14,7 @@ export default function TerrainMap() {
   const mapContainerRef = useRef<HTMLDivElement>(null);
 
   useMapLifecycle(mapContainerRef);
+  useEarthEngineImageryLayer();
   useMapLayerBindings();
   useMapAnalysisBindings();
   useMapInteractions();

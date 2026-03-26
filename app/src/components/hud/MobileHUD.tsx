@@ -1,10 +1,11 @@
 "use client";
 
+import EarthEnginePanel from "@/components/earth-engine/EarthEnginePanel";
 import ProfilePanel from "@/components/hud/ProfilePanel";
 import SystemHeader from "@/components/hud/SystemHeader";
 import TerrainControlsPanel from "@/components/hud/TerrainControlsPanel";
 import TimeStatusPanel from "@/components/hud/TimeStatusPanel";
-
+ 
 export default function MobileHUD() {
   return (
     <>
@@ -18,6 +19,7 @@ export default function MobileHUD() {
       </div>
 
       <div className="absolute bottom-4 left-4 right-4 z-30 flex flex-col gap-3">
+        <EarthEnginePanel />
         <TerrainControlsPanel />
         <ProfilePanel widthClass="w-full" />
       </div>

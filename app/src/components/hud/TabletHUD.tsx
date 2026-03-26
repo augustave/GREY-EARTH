@@ -1,6 +1,7 @@
 "use client";
 
 import CoordinatesPanel from "@/components/hud/CoordinatesPanel";
+import EarthEnginePanel from "@/components/earth-engine/EarthEnginePanel";
 import IntelFeedPanel from "@/components/hud/IntelFeedPanel";
 import ProfilePanel from "@/components/hud/ProfilePanel";
 import SystemHeader from "@/components/hud/SystemHeader";
@@ -17,6 +18,7 @@ export default function TabletHUD() {
       <div className="absolute top-4 right-4 z-30 flex flex-col gap-3 w-60">
         <TimeStatusPanel compact />
         <TerrainControlsPanel />
+        <EarthEnginePanel />
       </div>
 
       <div className="absolute bottom-4 left-4 z-30 scale-90 origin-bottom-left">
@@ -27,7 +29,7 @@ export default function TabletHUD() {
         <ProfilePanel widthClass="w-[360px]" />
       </div>
 
-      <div className="absolute top-[13rem] right-4 z-30 w-60">
+      <div className="absolute top-[20rem] right-4 z-30 w-60">
         <IntelFeedPanel />
       </div>
     </>
