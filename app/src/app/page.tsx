@@ -1,5 +1,6 @@
 "use client";
 
+import EarthEnginePromptOverlay from "@/components/earth-engine/EarthEnginePromptOverlay";
 import TerrainMap from "@/components/TerrainMap";
 import HUDOverlay from "@/components/HUDOverlay";
 import Terrain3D from "@/components/Terrain3D";
@@ -20,6 +21,8 @@ export default function Home() {
 
       {/* HUD panels overlay */}
       <HUDOverlay />
+
+      <EarthEnginePromptOverlay />
 
       {/* Corner vignette */}
       <div
