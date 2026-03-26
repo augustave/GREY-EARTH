@@ -1,0 +1,152 @@
+<style>
+.swatch{display:inline-block;width:86px;height:52px;border:0.5px solid var(--color-border-tertiary);border-radius:2px;vertical-align:top}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px}
+.lbl{font:400 11px/1.4 var(--font-mono);color:var(--color-text-secondary);display:block;margin-top:3px;text-align:center}
+h2{font:500 14px var(--font-sans);color:var(--color-text-primary);margin:18px 0 4px;letter-spacing:0.02em}
+h3{font:400 12px var(--font-sans);color:var(--color-text-secondary);margin:12px 0 4px}
+.tag{display:inline-block;font:400 10px var(--font-mono);padding:2px 6px;border-radius:2px;margin:1px 2px}
+</style>
+
+<div style="padding:4px 0">
+<div style="font:400 10px var(--font-mono);color:#00ff41;letter-spacing:0.12em;margin-bottom:12px">SIGINT-TERRAIN v1.1 — TEXTURES & ELEVATIONS</div>
+
+<h2>Terrain surface textures</h2>
+<div class="row">
+<div>
+<div class="swatch" style="background:#1a1e1c;background-image:repeating-linear-gradient(-45deg,transparent,transparent 1px,rgba(255,255,255,0.025) 1px,rgba(255,255,255,0.025) 2px)"></div>
+<span class="lbl">hillshade grain</span>
+</div>
+<div>
+<div class="swatch" style="background:#1a1e1c;background-image:repeating-linear-gradient(-45deg,transparent,transparent 2px,rgba(255,255,255,0.12) 2px,rgba(255,255,255,0.12) 2.5px),repeating-linear-gradient(-45deg,transparent,transparent 5px,rgba(255,255,255,0.08) 5px,rgba(255,255,255,0.08) 5.5px)"></div>
+<span class="lbl">contour hachure</span>
+</div>
+<div>
+<div class="swatch" style="background:#1a1e1c;background-image:radial-gradient(circle,rgba(255,255,255,0.08) 0.5px,transparent 0.5px);background-size:4px 4px"></div>
+<span class="lbl">stipple — low conf</span>
+</div>
+<div>
+<div class="swatch" style="background:#1a1e1c;background-image:radial-gradient(circle,rgba(255,255,255,0.05) 0.4px,transparent 0.4px);background-size:8px 8px"></div>
+<span class="lbl">stipple — high conf</span>
+</div>
+<div>
+<div class="swatch" style="background:#1a1e1c;background-image:repeating-linear-gradient(0deg,transparent,transparent 1px,rgba(0,0,0,0.06) 1px,rgba(0,0,0,0.06) 2px)"></div>
+<span class="lbl">scan lines</span>
+</div>
+<div>
+<div class="swatch" style="background:#1a1e1c;background-image:repeating-linear-gradient(45deg,transparent,transparent 2.5px,rgba(255,45,45,0.15) 2.5px,rgba(255,45,45,0.15) 3px),repeating-linear-gradient(-45deg,transparent,transparent 2.5px,rgba(255,45,45,0.15) 2.5px,rgba(255,45,45,0.15) 3px)"></div>
+<span class="lbl">denied zone</span>
+</div>
+</div>
+
+<h2>Data confidence / uncertainty wash</h2>
+<div class="row">
+<div><div class="swatch" style="background:#1a1e1c"></div><span class="lbl">CURRENT &lt;30m</span></div>
+<div><div class="swatch" style="background:linear-gradient(135deg,#1a1e1c,rgba(255,136,0,0.08))"></div><span class="lbl">RECENT 30m–2h</span></div>
+<div><div class="swatch" style="background:linear-gradient(135deg,#1a1e1c,rgba(255,136,0,0.15))"></div><span class="lbl">AGING 2–6h</span></div>
+<div><div class="swatch" style="background:linear-gradient(135deg,#1a1e1c,rgba(255,45,45,0.12))"></div><span class="lbl">STALE 6–24h</span></div>
+<div><div class="swatch" style="background:linear-gradient(135deg,#1a1e1c,rgba(255,45,45,0.22))"></div><span class="lbl">HISTORICAL &gt;24h</span></div>
+</div>
+
+<h2>Slope severity bands</h2>
+<div style="display:flex;gap:0;margin:6px 0 14px">
+<div style="flex:1;height:28px;background:rgba(0,255,65,0.25);border:0.5px solid rgba(0,255,65,0.3);display:flex;align-items:center;justify-content:center"><span style="font:400 9px var(--font-mono);color:#00ff41">0–3°</span></div>
+<div style="flex:1;height:28px;background:rgba(0,255,65,0.12);border:0.5px solid rgba(0,255,65,0.2);display:flex;align-items:center;justify-content:center"><span style="font:400 9px var(--font-mono);color:#00cc33">3–10°</span></div>
+<div style="flex:1;height:28px;background:rgba(255,204,0,0.18);border:0.5px solid rgba(255,204,0,0.3);display:flex;align-items:center;justify-content:center"><span style="font:400 9px var(--font-mono);color:#ccaa00">10–20°</span></div>
+<div style="flex:1;height:28px;background:rgba(255,136,0,0.22);border:0.5px solid rgba(255,136,0,0.3);display:flex;align-items:center;justify-content:center"><span style="font:400 9px var(--font-mono);color:#ff8800">20–30°</span></div>
+<div style="flex:1;height:28px;background:rgba(255,45,45,0.25);border:0.5px solid rgba(255,45,45,0.3);display:flex;align-items:center;justify-content:center"><span style="font:400 9px var(--font-mono);color:#ff4444">30–45°</span></div>
+<div style="flex:1;height:28px;background:rgba(255,45,45,0.4);border:0.5px solid rgba(255,45,45,0.4);display:flex;align-items:center;justify-content:center"><span style="font:400 9px var(--font-mono);color:#ff2d2d">45–90°</span></div>
+</div>
+<div style="display:flex;justify-content:space-between;font:400 9px var(--font-mono);color:var(--color-text-tertiary);margin-top:-10px;margin-bottom:14px">
+<span>all vehicles</span><span>wheeled</span><span>tracked</span><span>dismount</span><span>technical</span><span>cliff</span>
+</div>
+
+<h2>Hypsometric tinting — tactical palette</h2>
+<div style="display:flex;gap:0;margin:6px 0 4px">
+<div style="flex:1;height:22px;background:#0a1628"></div>
+<div style="flex:1;height:22px;background:#12201a"></div>
+<div style="flex:1;height:22px;background:#1a2e1c"></div>
+<div style="flex:1;height:22px;background:#2a3422"></div>
+<div style="flex:1;height:22px;background:#3a3a22"></div>
+<div style="flex:1;height:22px;background:#4a3a1a"></div>
+<div style="flex:1;height:22px;background:#4a2a1a"></div>
+<div style="flex:1;height:22px;background:#3a1a1a"></div>
+<div style="flex:1;height:22px;background:#2a1215"></div>
+<div style="flex:1;height:22px;background:#f2f2f2"></div>
+</div>
+<div style="display:flex;justify-content:space-between;font:400 8px var(--font-mono);color:var(--color-text-tertiary)">
+<span>-50m</span><span>0</span><span>10</span><span>50</span><span>100</span><span>250</span><span>500</span><span>1km</span><span>2km</span><span>4km+</span>
+</div>
+
+<h2>NYC datum elevation profile</h2>
+<h3>Cross-harbor transect — 40° 41' N, 74° 02' W → 73° 55' W</h3>
+
+<svg width="100%" viewBox="0 0 640 200" style="margin:8px 0">
+<defs>
+<linearGradient id="tfill" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#6b756d" stop-opacity="0.6"/>
+<stop offset="100%" stop-color="#1a1e1c" stop-opacity="0.95"/>
+</linearGradient>
+<linearGradient id="bfill" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#0a1628" stop-opacity="0.9"/>
+<stop offset="100%" stop-color="#0a1628" stop-opacity="0.3"/>
+</linearGradient>
+</defs>
+
+<!-- Grid -->
+<line x1="60" y1="30" x2="620" y2="30" stroke="var(--color-border-tertiary)" stroke-width="0.3"/>
+<line x1="60" y1="70" x2="620" y2="70" stroke="var(--color-border-tertiary)" stroke-width="0.3"/>
+<line x1="60" y1="110" x2="620" y2="110" stroke="var(--color-border-tertiary)" stroke-width="0.3"/>
+<line x1="60" y1="150" x2="620" y2="150" stroke="var(--color-border-tertiary)" stroke-width="0.3"/>
+
+<!-- Sea level line -->
+<line x1="60" y1="110" x2="620" y2="110" stroke="#00bfff" stroke-width="0.5" opacity="0.4"/>
+
+<!-- Y axis labels -->
+<text class="ts" x="55" y="34" text-anchor="end" style="font-size:9px">125m</text>
+<text class="ts" x="55" y="74" text-anchor="end" style="font-size:9px">75m</text>
+<text class="ts" x="55" y="114" text-anchor="end" style="font-size:9px;fill:#00bfff">0m MSL</text>
+<text class="ts" x="55" y="154" text-anchor="end" style="font-size:9px">-20m</text>
+
+<!-- Terrain profile path (simplified NYC cross-harbor) -->
+<!-- Staten Island (Todt Hill) → Harbor → Brooklyn → Prospect Park area -->
+<path d="M60,56 C80,52 100,34 120,38 C140,44 150,60 170,100 C180,118 190,125 210,128 C230,130 260,126 280,124 C300,120 310,108 320,95 C330,88 340,86 350,90 C360,96 370,108 380,118 C390,126 400,128 410,125 C420,118 430,108 440,96 C450,90 460,88 470,92 C480,98 500,104 520,100 C540,96 560,92 580,90 C600,88 610,86 620,85" fill="url(#tfill)" stroke="rgba(255,255,255,0.5)" stroke-width="1"/>
+
+<!-- Below-sea fill for harbor channel -->
+<path d="M170,110 C180,118 190,125 210,128 C230,130 260,126 280,124 C300,120 310,110 310,110 Z" fill="url(#bfill)" opacity="0.5"/>
+<path d="M370,110 C380,118 390,126 400,128 C410,125 420,118 430,110 Z" fill="url(#bfill)" opacity="0.4"/>
+
+<!-- Landmark callouts -->
+<line x1="110" y1="34" x2="110" y2="18" stroke="var(--color-text-tertiary)" stroke-width="0.5"/>
+<text style="font:400 8px var(--font-mono);fill:var(--color-text-secondary)" x="110" y="14" text-anchor="middle">Todt Hill 125m</text>
+
+<line x1="240" y1="126" x2="240" y2="166" stroke="#00bfff" stroke-width="0.5" opacity="0.4"/>
+<text style="font:400 8px var(--font-mono);fill:#00bfff" x="240" y="174" text-anchor="middle">Harbor -16m</text>
+
+<line x1="330" y1="86" x2="330" y2="18" stroke="var(--color-text-tertiary)" stroke-width="0.5"/>
+<text style="font:400 8px var(--font-mono);fill:var(--color-text-secondary)" x="330" y="14" text-anchor="middle">Brooklyn Heights 28m</text>
+
+<line x1="460" y1="88" x2="460" y2="18" stroke="var(--color-text-tertiary)" stroke-width="0.5"/>
+<text style="font:400 8px var(--font-mono);fill:var(--color-text-secondary)" x="460" y="14" text-anchor="middle">Prospect Park 60m</text>
+
+<circle cx="490" cy="100" r="3" fill="#00ff41" opacity="0.8"/>
+<text style="font:400 8px var(--font-mono);fill:#00ff41" x="500" y="104">DATUM 12m</text>
+
+<!-- X axis distance markers -->
+<text style="font:400 8px var(--font-mono);fill:var(--color-text-tertiary)" x="60" y="192">0 km</text>
+<text style="font:400 8px var(--font-mono);fill:var(--color-text-tertiary)" x="200" y="192">3 km</text>
+<text style="font:400 8px var(--font-mono);fill:var(--color-text-tertiary)" x="340" y="192">6 km</text>
+<text style="font:400 8px var(--font-mono);fill:var(--color-text-tertiary)" x="480" y="192">9 km</text>
+<text style="font:400 8px var(--font-mono);fill:var(--color-text-tertiary)" x="600" y="192">11.5 km</text>
+</svg>
+
+<div style="display:flex;gap:12px;margin-top:6px;font:400 9px var(--font-mono);color:var(--color-text-tertiary)">
+<span>z-exag: 3.0x</span>
+<span>contour: 5m</span>
+<span>sun alt: 35°</span>
+<span>vert datum: NAVD88</span>
+</div>
+
+<div style="margin-top:16px;padding-top:12px;border-top:0.5px solid var(--color-border-tertiary);font:400 9px var(--font-mono);color:#00ff41;letter-spacing:0.08em">
+SIGINT-TERRAIN v1.1 — DARK RELIEF — MGRS 18T WL 85438 05964
+</div>
+</div>
