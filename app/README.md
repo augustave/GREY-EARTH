@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GREY-EARTH App
 
-## Getting Started
+This directory contains the deployed Next.js application for GREY-EARTH.
 
-First, run the development server:
+For the full project overview, architecture, setup, Earth Engine configuration, deployment notes, and roadmap, see the repo root README:
+
+- [`../README.md`](../README.md)
+
+Canonical Vercel project:
+
+- `researchdirector/grey-earth`
+
+Important deployment note:
+
+- this app is deployed from the repository root because the Vercel project Root Directory is `app`
+- do not use the legacy `researchdirector/app` Vercel project for new production deploys
+
+## Local Commands
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npm test
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Local Environment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create `app/.env.local` with:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+NEXT_PUBLIC_EE_CLIENT_ID=your-google-oauth-client-id.apps.googleusercontent.com
+NEXT_PUBLIC_EE_PROJECT=gen-lang-client-0431154803
+```
 
-## Learn More
+## Primary App Entry Points
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app/page.tsx`
+- `src/app/layout.tsx`
+- `src/app-shell/AppShellProvider.tsx`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Important Subsystems
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `src/app-shell/providers/*`
+- `src/domain/rendering.ts`
+- `src/components/TerrainMap.tsx`
+- `src/components/Terrain3D.tsx`
+- `src/lib/elevation.ts`
+- `src/lib/earth-engine/browser.ts`

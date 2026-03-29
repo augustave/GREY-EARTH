@@ -32,3 +32,4 @@ app/dev_server.log
 app/startup.log
 app/render_state_manifest.json
 app/verification_report.md
+.vercel
